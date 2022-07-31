@@ -113,6 +113,7 @@ public class SSH extends AbsTransport implements ConnectionMonitor, InteractiveC
 	private boolean compression = false;
 	private volatile boolean authenticated = false;
 	private volatile boolean connected = false;
+	private volatile boolean connecting = false;
 	private volatile boolean sessionOpen = false;
 
 	private boolean pubkeysExhausted = false;
@@ -435,6 +436,15 @@ public class SSH extends AbsTransport implements ConnectionMonitor, InteractiveC
 
 	@Override
 	public void connect() {
+		connecting = true;
+		try {
+			connectInternal();
+		} finally {
+			connecting = false;
+		}
+	}
+
+	private void connectInternal() {
 		connection = new Connection(host.getHostname(), host.getPort());
 		connection.addConnectionMonitor(this);
 
@@ -604,6 +614,13 @@ public class SSH extends AbsTransport implements ConnectionMonitor, InteractiveC
 	}
 
 	@Override
+<<<<<<< HEAD
+=======
+	public boolean isConnecting() {
+		return connecting;
+	}
+
+>>>>>>> fusiondog
 	public void connectionLost(Throwable reason) {
 		onDisconnect();
 	}

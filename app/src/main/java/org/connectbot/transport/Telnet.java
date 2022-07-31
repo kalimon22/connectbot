@@ -187,6 +187,11 @@ public class Telnet extends AbsTransport {
 	}
 
 	@Override
+	public boolean isConnecting() {
+		return false;
+	}
+
+	@Override
 	public boolean isSessionOpen() {
 		return connected;
 	}
