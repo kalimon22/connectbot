@@ -614,13 +614,12 @@ public class SSH extends AbsTransport implements ConnectionMonitor, InteractiveC
 	}
 
 	@Override
-<<<<<<< HEAD
-=======
+
 	public boolean isConnecting() {
 		return connecting;
 	}
 
->>>>>>> fusiondog
+
 	public void connectionLost(Throwable reason) {
 		onDisconnect();
 	}

@@ -1,24 +1,9 @@
 buildscript {
-<<<<<<< HEAD
 	dependencies {
 		if (rootProject.hasProperty('jacocoVersion')) {
 			classpath "org.jacoco:org.jacoco.core:${rootProject.jacocoVersion}"
 		}
 	}
-=======
-    repositories {
-        jcenter()
-    }
-
-    dependencies {
-        classpath 'org.kt3k.gradle.plugin:coveralls-gradle-plugin:2.6.3'
-        classpath 'com.android.tools.build:gradle:2.2.2'
-        classpath 'com.github.gfx.ribbonizer:plugin:0.5.0'
-        if (rootProject.hasProperty('jacocoVersion')) {
-            classpath "org.jacoco:org.jacoco.core:${rootProject.jacocoVersion}"
-        }
-    }
->>>>>>> fusiondog
 }
 
 plugins {
@@ -184,7 +169,7 @@ tasks.withType(Test) {
 }
 
 /*
- * This works around a deficiency in ddmlib's 
+ * This works around a deficiency in ddmlib's
  * com/android/ddmlib/AndroidDebugBridge.java where it doesn't support anything
  * other than 127.0.0.1 for the host of ADB. This allows us to run tests
  * in a Docker container but forward to a real device.
@@ -274,4 +259,3 @@ dependencies {
 	errorprone "com.google.errorprone:error_prone_core:2.14.0"
 	errorproneJavac "com.google.errorprone:javac:9+181-r4173-1"
 }
-

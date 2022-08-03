@@ -1,0 +1,20 @@
+{
+  "version": 3,
+  "artifactType": {
+    "type": "APK",
+    "kind": "Directory"
+  },
+  "applicationId": "org.connectbot",
+  "variantName": "googleRelease",
+  "elements": [
+    {
+      "type": "SINGLE",
+      "filters": [],
+      "attributes": [],
+      "versionCode": 10908071,
+      "versionName": "1.9.8-71-c5201db-main-dirty",
+      "outputFile": "app-google-release.apk"
+    }
+  ],
+  "elementType": "File"
+}

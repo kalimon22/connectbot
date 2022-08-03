@@ -228,6 +228,17 @@ public class HostListActivity extends AppCompatListActivity implements OnHostSta
 		});
 
 		this.inflater = LayoutInflater.from(this);
+		//Autoconnect jesugom
+		hosts = hostdb.getHosts(sortedByColor);
+		if (!hosts.isEmpty()) {
+			HostBean host = hosts.get(0);
+			Uri uri = host.getUri();
+			Intent contents = new Intent(Intent.ACTION_VIEW, uri);
+			contents.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+			contents.setClass(HostListActivity.this, ConsoleActivity.class);
+			HostListActivity.this.startActivity(contents);
+		}
+		//End autoconnect jesugom
 	}
 
 	@Override
@@ -384,6 +395,7 @@ public class HostListActivity extends AppCompatListActivity implements OnHostSta
 		mAdapter = new HostAdapter(this, hosts, bound);
 		mListView.setAdapter(mAdapter);
 		adjustViewVisibility();
+
 	}
 
 	@Override
@@ -561,7 +573,14 @@ public class HostListActivity extends AppCompatListActivity implements OnHostSta
 				Log.e("HostAdapter", "Host bean is null!");
 				hostHolder.nickname.setText("Error during lookup");
 			} else {
-				hostHolder.nickname.setText(host.getNickname());
+				// Autoconnect jesugom
+				if(position==0) {
+					hostHolder.nickname.setText("Auto: " + host.getNickname());
+				}
+				else {
+					hostHolder.nickname.setText(host.getNickname());
+				}
+				// End Autoconnect
 			}
 
 			switch (this.getConnectedState(host)) {

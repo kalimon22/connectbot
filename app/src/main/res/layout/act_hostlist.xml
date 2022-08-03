@@ -42,8 +42,7 @@
 		android:layout_height="fill_parent"
 		android:gravity="center"
 		android:text="@string/list_host_empty"
-		android:textAppearance="?android:attr/textAppearanceMedium"
-		/>
+		android:textAppearance="?android:attr/textAppearanceMedium" />
 
 	<FrameLayout
 		android:id="@+id/add_host_button_container"
